@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_125231) do
+ActiveRecord::Schema.define(version: 2021_05_04_150809) do
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
-    t.bigint "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_tags_on_tag_id"
     t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
@@ -28,6 +26,8 @@ ActiveRecord::Schema.define(version: 2021_04_22_125231) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tag_id"
+    t.index ["tag_id"], name: "index_todos_on_tag_id"
     t.index ["user_id"], name: "index_todos_on_user_id"
   end
 
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_125231) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "tags", "tags"
   add_foreign_key "tags", "users"
+  add_foreign_key "todos", "tags"
   add_foreign_key "todos", "users"
 end

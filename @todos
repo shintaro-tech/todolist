@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/environment/todolists/app/views/toppages/index.html.erb:21 ActionView::CompiledTemplates#_app_views_toppages_index_html_erb___2423675591660142675_69827383751140:
+
+    [1;34m16[0m:         <tr>
+    [1;34m17[0m:           <td><%= link_to todo.id , todo %></td>
+    [1;34m18[0m:           <td><%= todo.title %></td>
+    [1;34m19[0m:           <td><%= todo.content %></td>
+    [1;34m20[0m:   <% binding.pry %>        
+ => [1;34m21[0m:           <!-- formで選んだカテゴリを表示させたい -->
+    [1;34m22[0m:           <td><%= todo.tag %></td>
+    [1;34m23[0m:         </tr>
+    [1;34m24[0m:       <% end %>
+    [1;34m25[0m:       <% end %>
+    [1;34m26[0m:     </tbody>
+

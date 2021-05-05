@@ -1,6 +1,44 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
-<% else %>
+  <h3><%=current_user.name %>さんの予定一覧</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>タイトル</th>
+        <th>予定</th>
+        <th>カテゴリ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @todos.each do |todo| %>
+      <% tag = @tags %>
+        <tr>
+          <td><%= link_to todo.id , todo %></td>
+          <td><%= todo.title %></td>
+          <td><%= todo.content %></td>
+  <%# binding.pry %>        
+          <!-- formで選んだカテゴリを表示させたい -->
+          <td>
+            <%#= todo.tag %>
+            <%# if todo.tag %>
+              <%#= todo.tag.title %>
+            <%# else %>
+              <%# 何もしない %>
+            <%# end %>
+            <%= todo.tag.present? ? todo.tag.title : nil %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @todos %>
+  </div>
+
+<%= link_to '新規タスクの登録', new_todo_path, class: 'btn btn-primary' %>
+
+  <% else %>
   <div class="center jumbotron">
     <div class="text-center">
       <h1>Todoリストで予定を管理しよう！</h1>

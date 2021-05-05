@@ -1,0 +1,19 @@
+<h1>id: <%= @todo.id %> タスクの詳細ページ</h1>
+
+<table class= "table table-bordered">
+    <tr>
+        <th>id</th>
+        <td><%= @todo.id %></td>
+    </tr>
+    <tr>
+        <th>タイトル</th>
+        <td><%= @todo.title %></td>
+    </tr>
+    <tr>
+        <th>予定</th>
+        <td><%= @todo.content %></td>
+    </tr>
+</table> 
+
+<%= link_to 'このタスクを編集する', edit_todo_path(@todo), class: 'btn btn-light' %>
+<%= link_to 'このタスクを削除する', @todo, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

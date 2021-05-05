@@ -1,0 +1,11 @@
+<h1>カテゴリの詳細ページ</h1>
+
+<table class= "table table-bordered">
+    <tr>
+        <th width="34%">カテゴリ</th>
+        <td width= "66%"><%= @tag.title %></td>
+    </tr>
+</table> 
+
+<%= link_to 'このカテゴリを編集する', edit_tag_path(@tag), class: 'btn btn-light' %>
+<%= link_to 'このカテゴリを削除する', @tag, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
